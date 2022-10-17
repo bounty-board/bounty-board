@@ -1,8 +1,16 @@
 <template>
   <div>
     <div v-for="issue in project">
-      {{ issue.title }}
-      {{ issue.id }}
+      <nuxt-link :to="`/issue/${issue.id}`">
+        <div class="issue">
+          <div class="issue__title">
+            {{ issue.title }}
+          </div>
+        </div>
+      </nuxt-link>
+    </div>
+      <!-- {{ issue.title }}
+      {{ issue.id }} -->
     </div>
   </div>
 </template>

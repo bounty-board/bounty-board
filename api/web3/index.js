@@ -1,7 +1,7 @@
 import { project, initIssue } from './smartcontracts';
 
-export async function getIssue() {
-  const issueAddress = await project.methods.getIssue('1410376581').call();
+export async function getIssueAddress(id) {
+  const issueAddress = await project.methods.getIssue(id).call();
   return issueAddress;
 }
 
