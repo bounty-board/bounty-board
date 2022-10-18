@@ -10,3 +10,13 @@ export async function getIssueBounty(address) {
   const bounty = await issue.methods.getBounty().call();
   return bounty;
 }
+
+export async function addBounty(address, bounty, coinbase) {
+  const issue = initIssue(address);
+  console.log('0000');
+  console.log(coinbase);
+  const result = await issue.methods
+    .addBounty(bounty)
+    .send({ from: coinbase, value: bounty });
+  return result;
+}
