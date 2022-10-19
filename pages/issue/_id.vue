@@ -8,8 +8,8 @@
 export default {
   data() {
     return {
-      bounty: {},
-      contractAddress: '',
+      bounty: null,
+      contractAddress: null,
 
       value: 100,
     };
