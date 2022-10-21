@@ -9,7 +9,7 @@ export default ({ app }, inject) => {
   inject('web3', async () => {
     // If injected web3 has been read, return it
     if (typeof window.ethereum !== 'undefined' && !_web3) {
-      // Get the injected ethereum instance
+      // Get the injected ethereum instance from metamask
       const ethereum = window.ethereum;
       _web3 = new Web3(ethereum);
     }
@@ -31,7 +31,7 @@ export default ({ app }, inject) => {
   });
 
   // Get the coinbase address of the user (wallet address)
-  inject('coinbase', async (contractAddress) => {
+  inject('coinbase', async () => {
     // If coinbase has been read, return it
     if (!_coinbase) {
       const web3 = await app.$web3();

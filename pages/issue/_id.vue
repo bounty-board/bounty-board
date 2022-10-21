@@ -1,7 +1,10 @@
 <template>
   <div>
     <span>Current Bounty: {{ bounty }} - {{ contractAddress }}</span>
-    <button @click="addBounty">Add Bounty</button>
+    <button @click="addBounty" v-if="!isNullAddress(contractAddress)">
+      Add Bounty
+    </button>
+    <button @click="createIssue" v-else>Create Issue Smart Contract</button>
   </div>
 </template>
 <script>
@@ -12,6 +15,7 @@ export default {
       contractAddress: null,
 
       value: 100,
+      id: null,
     };
   },
   methods: {
@@ -22,13 +26,33 @@ export default {
         console.log(e);
       }
     },
+
+    async createIssue() {
+      try {
+        const contractAddress = await this.$createIssue(this.id);
+        this.contractAddress = contractAddress;
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    isNullAddress(address) {
+      return (
+        address === '0x0000000000000000000000000000000000000000' ||
+        address === null
+      );
+    },
+  },
+  mounted() {
+    this.$setProjectAddress('0x0a7314dE431F3b2B374741A9cBB20FE97dF3F55B');
   },
   async fetch() {
     this.$setProjectAddress('0x0a7314dE431F3b2B374741A9cBB20FE97dF3F55B');
     const { id } = this.$route.params;
-
+    this.id = id;
     this.contractAddress = await this.$getIssueAddress(id);
-    this.bounty = await this.$getBounty(this.contractAddress);
+    if (!this.isNullAddress(this.contractAddress)) {
+      this.bounty = await this.$getBounty(this.contractAddress);
+    }
   },
 };
 </script>
