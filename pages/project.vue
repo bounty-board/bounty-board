@@ -26,7 +26,7 @@ export default {
   },
   async fetch() {
     const { data } = await this.$http.$get(
-      '/api/issues?repo=bounty-board-smart-contract&owner=bounty-board'
+      '/api/issues?repo=bounty-board&owner=bounty-board'
     );
 
     this.project = data;
