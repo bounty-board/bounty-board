@@ -1,7 +1,7 @@
 import users from '~/assets/abi/Users.json';
 
 export default ({ app }, inject) => {
-  let _usersAddress = null;
+  let _usersAddress = process.env.USERS_ADDRESS;
 
   // Get an instance of the project contract with a given address
   inject('usersContract', async () => {

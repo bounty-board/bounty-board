@@ -1,7 +1,7 @@
 import walletCheck from '~/assets/abi/WalletCheck.json';
 
 export default ({ app }, inject) => {
-  let _walletCheckAddress = null;
+  let _walletCheckAddress = process.env.WALLET_CHECK_ADDRESS;
 
   // Get an instance of the project contract with a given address
   inject('walletCheckContract', async () => {

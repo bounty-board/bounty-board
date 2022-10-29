@@ -43,10 +43,10 @@ export default {
     },
   },
   mounted() {
-    this.$setProjectAddress('0x0a7314dE431F3b2B374741A9cBB20FE97dF3F55B');
+    this.$setProjectAddress(process.env.PROJECT_ADDRESS);
   },
   async fetch() {
-    this.$setProjectAddress('0x0a7314dE431F3b2B374741A9cBB20FE97dF3F55B');
+    this.$setProjectAddress(process.env.PROJECT_ADDRESS);
     const { id } = this.$route.params;
     this.id = id;
     this.contractAddress = await this.$getIssueAddress(id);
