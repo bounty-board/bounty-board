@@ -22,9 +22,7 @@ export default ({ app }, inject) => {
     // If injected web3 has been read, return it
     if (!_web3View) {
       console.log('Injected web3View');
-      _web3View = new Web3(
-        'https://eth-goerli.g.alchemy.com/v2/UONWDOWpkQCu_nJ-GIlbDUJFHaIpSVwL'
-      );
+      _web3View = new Web3(process.env.VIEW_NODE_URL);
     }
 
     return _web3View;
