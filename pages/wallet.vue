@@ -1,7 +1,7 @@
 <template>
   <div>
-    <text-field v-model="username" label="Username" />
-    <v-btn @click="addToBlockchain">Add to Blockchain</v-btn>
+    <input class="text-black" v-model="username" label="Username" />
+    <button @click="addToBlockchain">Add to Blockchain</button>
   </div>
 </template>
 
@@ -9,12 +9,12 @@
 export default {
   data() {
     return {
-      username: '',
+      username: 'bryt12',
     };
   },
   methods: {
     addToBlockchain() {
-      this.$store.dispatch('addUser', this.username);
+      this.$addUser(this.username);
     },
   },
 };

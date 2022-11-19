@@ -15,12 +15,16 @@ export default {
   },
 
   // 'https://eth-goerli.g.alchemy.com/v2/UONWDOWpkQCu_nJ-GIlbDUJFHaIpSVwL'
-  // '0x0a7314dE431F3b2B374741A9cBB20FE97dF3F55B'
+  // http://localhost:8545
+
+  // WALLET_CHECK_ADDRESS: '0x5FC8d32690cc91D4c39d9d3abcBD16989F875707',
+  // USERS_ADDRESS: '0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9',
+  // PROJECT_ADDRESS: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
   env: {
     VIEW_NODE_URL: process.env.VIEW_NODE_URL || 'http://localhost:8545',
-    WALLET_CHECK_ADDRESS: '0x5FC8d32690cc91D4c39d9d3abcBD16989F875707',
-    USERS_ADDRESS: '0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9',
     PROJECT_ADDRESS: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
+    USERS_ADDRESS: '0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9',
+    WALLET_CHECK_ADDRESS: '0x9f17e05958Fa0EFbA8F6fD5CB22c51c00eb3B315',
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -31,6 +35,8 @@ export default {
     '~/plugins/web3.js',
     '~/plugins/web3/issue.js',
     '~/plugins/web3/project.js',
+    '~/plugins/web3/users.js',
+    '~/plugins/web3/walletCheck.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

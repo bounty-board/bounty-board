@@ -17,10 +17,13 @@ export default ({ app }, inject) => {
 
   // Add a username to the user contract
   inject('addUser', async (username) => {
+    console.log('----walletCheck.js----');
+    console.log(_walletCheckAddress);
     const walletCheck = await app.$walletCheckContract();
+    const coinbase = await app.$coinbase();
 
     await walletCheck.methods
       .requestWalletAddress(username)
-      .send({ from: app.$coinbase() });
+      .send({ from: coinbase });
   });
 };

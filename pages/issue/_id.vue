@@ -46,10 +46,15 @@ export default {
     this.$setProjectAddress(process.env.PROJECT_ADDRESS);
   },
   async fetch() {
+    console.log(1);
     this.$setProjectAddress(process.env.PROJECT_ADDRESS);
+    console.log(2);
     const { id } = this.$route.params;
+    console.log(3);
     this.id = id;
+    console.log(4);
     this.contractAddress = await this.$getIssueAddress(id);
+    console.log(5);
     if (!this.isNullAddress(this.contractAddress)) {
       this.bounty = await this.$getBounty(this.contractAddress);
     }

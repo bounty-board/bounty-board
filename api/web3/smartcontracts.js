@@ -21,5 +21,5 @@ export const initIssue = (address) => {
 
 export const project = initContract(
   Project.abi,
-  '0x0a7314dE431F3b2B374741A9cBB20FE97dF3F55B'
+  '0x5FbDB2315678afecb367f032d93F642f64180aa3'
 );
